@@ -4,6 +4,11 @@ data "aws_ami" "ami" {
   owners = ["self"]
 }
 
+
+data "aws_caller_identity" "account" {
+  # this is actually going to give the account id and we can use that in iam.tf file
+}
+
 #data "template_file" "userdata" {
 #  template = file("${path.module}/userdata.sh")
 #  vars = {
