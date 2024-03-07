@@ -88,7 +88,7 @@ resource "aws_security_group" "main" {
 }
 
 resource "aws_lb_target_group" "main" {
-  name = "${var.component}-${var.env}-target_group"
+  name = "${var.component}-${var.env}-targetgroup"
   port = var.port
   protocol = "HTTP"
   vpc_id = var.vpc_id
