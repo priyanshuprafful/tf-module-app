@@ -109,7 +109,7 @@ resource "aws_lb_target_group" "main" {
 # Creation of CNAME record
 resource "aws_route53_record" "CNAME_main" {
   zone_id = data.aws_route53_zone.domain.zone_id #saraldevops.online ki zone id mil jaegi
-  name    = "${var.component}-${var.env}.${var.dns_domain}" # frontend-dev.saraldevops.online
+  name    = local.dns_name # frontend-dev.saraldevops.online
   type    = "CNAME"
   ttl     = 30 # response time
   records = [var.alb_dns_name] # to get the records
