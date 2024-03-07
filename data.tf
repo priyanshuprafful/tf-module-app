@@ -9,6 +9,10 @@ data "aws_caller_identity" "account" {
   # this is actually going to give the account id and we can use that in iam.tf file
 }
 
+data "aws_route53_zone" "domain" {
+  name = var.dns_domain #
+}
+
 #data "template_file" "userdata" {
 #  template = file("${path.module}/userdata.sh")
 #  vars = {
