@@ -128,7 +128,7 @@ resource "aws_lb_listener_rule" "listener_rule" {
 
   condition {
     host_header {
-      values = ["my-service.*.terraform.io"]
+      values = [local.dns_name] 
     }
   }
 }
