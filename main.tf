@@ -49,6 +49,17 @@ resource "aws_autoscaling_group" "main" {
   }
 }
 
+resource "aws_autoscaling_policy" "asg-cpu-rule" {
+  autoscaling_group_name = aws_autoscaling_group.main.name
+  name                   = "CPU_Load_Detect" # Based on CPU utilisation we increase the load
+  policy_type = "TargetTrackingScaling"
+  target_tracking_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ASGAverageCPUUtilization"
+    }
+    target_value = 40.0
+  }
+}
 
 # creating a custom security group for our template and instances will follow this
 resource "aws_security_group" "main" {
