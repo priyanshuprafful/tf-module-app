@@ -44,7 +44,7 @@ resource "aws_autoscaling_group" "main" {
   # here tags are not preferred instead individual tag are preferred
   tag {
     key                 = "Name"
-    propagate_at_launch = false
+    propagate_at_launch = true
     value               = "${var.component}-${var.env}"
   }
 }
