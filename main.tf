@@ -39,7 +39,7 @@ resource "aws_launch_template" "main" {
 
 # AWS auto Scaling groups
 resource "aws_autoscaling_group" "main" {
-  name = "${var.component}-${var.env}-auto scaling group"
+  name = "${var.component}-${var.env}-auto_scaling_group"
   desired_capacity = var.desired_capacity
   max_size = var.max_size
   min_size = var.min_size
